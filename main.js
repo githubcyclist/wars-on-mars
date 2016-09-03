@@ -59,14 +59,25 @@ function resetEnemy() {
 	yposmouse = 0;
 	dead = 0;
 }
+function fireAgain() {
+	xposcannonball = 20;
+	yposcannonball = 0;
+	fire(0);
+}
 function ready() {
 	for(i = 0; i < enemy_speed; i++) {
 		yposenemy--;
 	}
+	fire(1);
+	sleep(10);
+}
+function fire(isPart) {
 	for(i = 0; i < bullet_speed; i++) {
 		yposcannonball++;
 	}
-	sleep(10);
+	if(isPart == 0) {
+		sleep(10);
+	}
 }
 function sleep(milliseconds) {
   var start = new Date().getTime();
