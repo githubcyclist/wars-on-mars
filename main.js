@@ -44,6 +44,7 @@ var app = playground({
 			this.layer.clear("#cc3300");
 			this.layer.drawImage(this.images.guy, xposenemy, yposenemy);
 			this.layer.drawImage(this.images.cannon, 0, 0);
+			this.layer.drawImage(this.images.cannonball, xposcannonball, yposcannonball);
 			ready();
 		} else {
 			console.log("He's gone.");
