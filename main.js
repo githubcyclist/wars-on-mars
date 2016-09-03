@@ -40,6 +40,7 @@ var app = playground({
 		if(enemy.x == cannon.x && enemy.y == cannon.y) {
 			console.log("Yep, he's dead!");
 			fireAgain();
+			resetEnemy();
 			dead = 1;
 		}
 		/*if(collided(cannon, enemy)) {
@@ -54,7 +55,6 @@ var app = playground({
 			ready();
 		} else {
 			console.log("He's gone.");
-			resetEnemy();
 		}
 	}
 });
