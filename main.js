@@ -51,6 +51,8 @@ var app = playground({
 			this.layer.drawImage(this.images.guy, xposenemy, yposenemy);
 			this.layer.drawImage(this.images.cannon, 0, 0);
 			this.layer.drawImage(this.images.cannonball, xposcannonball, yposcannonball);
+			this.layer.drawText(this.enemyinfo, 600, 0);
+			this.layer.drawText(this.cannoninfo, 600, 40);
 			ready();
 		} else {
 			resetEnemy();
