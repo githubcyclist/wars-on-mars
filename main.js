@@ -38,12 +38,7 @@ var app = playground({
 		this.enemyinfo = "Enemy: " + enemy.x + ", " + enemy.y;
 		this.cannoninfo = "Cannon: " + cannon.x + ", " + cannon.y;
 		if(enemy.x == cannon.x && enemy.y == cannon.y) {
-			console.log("Yep, he's dead!");
-			xposenemy = 0;
-			yposenemy = 700;
-			xposmouse = 0;
-			yposmouse = 0;
-			dead = 0;
+			resetEnemy();
 			fireAgain();
 			dead = 1;
 		}
@@ -58,7 +53,7 @@ var app = playground({
 			this.layer.drawImage(this.images.cannonball, xposcannonball, yposcannonball);
 			ready();
 		} else {
-			console.log("He's gone.");
+			resetEnemy();
 		}
 	}
 });
