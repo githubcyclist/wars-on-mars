@@ -26,7 +26,7 @@ var app = playground({
 		}*/
 	},
 	keydown: function(event) {
-		if(this.keyboard.keys.f) {
+		if(event.key == "up") {
 			fire(0);
 		}
   	},
