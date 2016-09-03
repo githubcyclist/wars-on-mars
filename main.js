@@ -58,7 +58,7 @@ var app = playground({
 	}
 });
 function resetEnemy() {
-	xposenemy = 0;
+	xposenemy = 20;
 	yposenemy = 700;
 	xposmouse = 0;
 	yposmouse = 0;
