@@ -25,6 +25,11 @@ var app = playground({
 			dead = 1;
 		}*/
 	},
+	keydown: function(event) {
+		if(this.keyboard.keys.f) {
+			fire(0);
+		}
+  	},
 	render: function() {
 		enemy.x = xposenemy;
 		enemy.y = yposenemy;
@@ -68,7 +73,6 @@ function ready() {
 	for(i = 0; i < enemy_speed; i++) {
 		yposenemy--;
 	}
-	fire(1);
 	sleep(10);
 }
 function fire(isPart) {
