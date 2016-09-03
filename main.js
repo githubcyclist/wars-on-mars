@@ -39,8 +39,12 @@ var app = playground({
 		this.cannoninfo = "Cannon: " + cannon.x + ", " + cannon.y;
 		if(enemy.x == cannon.x && enemy.y == cannon.y) {
 			console.log("Yep, he's dead!");
+			xposenemy = 0;
+			yposenemy = 700;
+			xposmouse = 0;
+			yposmouse = 0;
+			dead = 0;
 			fireAgain();
-			resetEnemy();
 			dead = 1;
 		}
 		/*if(collided(cannon, enemy)) {
