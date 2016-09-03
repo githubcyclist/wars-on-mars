@@ -1,4 +1,4 @@
-var xposenemy = 0;
+var xposenemy = 20;
 var yposenemy = 700;
 var xposcannonball = 20;
 var yposcannonball = 0;
