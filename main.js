@@ -5,7 +5,7 @@ var yposcannonball = 0;
 var xposmouse = 0;
 var yposmouse = 0;
 var enemy_speed = 1;
-var bullet_speed = 2.0;
+var bullet_speed = 1;
 var dead = 0;
 var mousepointer = {x: 0, y: 0, width: 128, height: 128};
 var enemy = {x: 0, y: 0, width: 99, height: 132};
@@ -63,7 +63,7 @@ function ready() {
 	for(i = 0; i < enemy_speed; i++) {
 		yposenemy--;
 	}
-	for(i = 0; i < bullet_speed; i = i + 0.1) {
+	for(i = 0; i < bullet_speed; i++) {
 		yposcannonball++;
 	}
 	sleep(10);
