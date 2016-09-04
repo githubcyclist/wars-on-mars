@@ -37,15 +37,15 @@ var app = playground({
 		cannon.y = yposcannonball;
 		this.enemyinfo = "Enemy: " + enemy.x + ", " + enemy.y;
 		this.cannoninfo = "Cannon: " + cannon.x + ", " + cannon.y;
-		if(enemy.x == cannon.x && enemy.y == cannon.y) {
+		/*if(enemy.x == cannon.x && enemy.y == cannon.y) {
 			resetEnemy();
 			fireAgain();
 			dead = 1;
-		}
-		/*if(collided(cannon, enemy)) {
+		}*/
+		if(hitBox(cannon, enemy)) {
 			console.log("Yep, he's dead!");
 			dead = 1;
-		}*/
+		}
 		if(dead == 0) {
 			this.layer.clear("#cc3300");
 			this.layer.drawImage(this.images.guy, xposenemy, yposenemy);
@@ -89,6 +89,16 @@ function fire(isPart) {
 	if(isPart == 0) {
 		sleep(10);
 	}
+}
+/* Box model detection, return true on collision */
+function hitBox( source, target ) {
+	/* Source and target objects contain x, y and width, height */
+	return !(
+		( ( source.y + source.height ) < ( target.y ) ) ||
+		( source.y > ( target.y + target.height ) ) ||
+		( ( source.x + source.width ) < target.x ) ||
+		( source.x > ( target.x + target.width ) )
+	);
 }
 function sleep(milliseconds) {
   var start = new Date().getTime();
