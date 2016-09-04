@@ -42,7 +42,7 @@ var app = playground({
 			fireAgain();
 			dead = 1;
 		}*/
-		if(hitBox(cannon, enemy)) {
+		if(pixelHitTest(cannon, enemy)) {
 			console.log("Yep, he's dead!");
 			dead = 1;
 		}
@@ -91,14 +91,45 @@ function fire(isPart) {
 	}
 }
 /* Box model detection, return true on collision */
-function hitBox( source, target ) {
-	/* Source and target objects contain x, y and width, height */
+/*function hitBox( source, target ) {
+	Source and target objects contain x, y and width, height
 	return !(
 		( ( source.y + source.height ) < ( target.y ) ) ||
 		( source.y > ( target.y + target.height ) ) ||
 		( ( source.x + source.width ) < target.x ) ||
 		( source.x > ( target.x + target.width ) )
 	);
+}*/
+/* Pixel collision detection pseudo code */
+function pixelHitTest( source, target ) {
+	// Loop through all the pixels in the source image
+	for( var s = 0; s < source.pixelMap.length; s++ ) {
+		var sourcePixel = source.pixelMap[s];
+		// Add positioning offset
+		var sourceArea = {
+			x: sourcePixel.x + source.x,
+			y: sourcePixel.y + source.y,
+			width: 1,
+			height: 1
+		};
+ 
+		// Loop through all the pixels in the target image
+		for( var t = 0; t < target.pixelMap.length; t++ ) {
+			var targetPixel = target.pixelMap[t];
+			// Add positioning offset
+			var targetArea = {
+				x: targetPixel.x + target.x,
+				y: targetPixel.y + target.y,
+				width: 1,
+				height: 1
+			};
+ 
+			/* Use the earlier aforementioned hitbox function */
+			if( hitBox( sourceArea, targetArea ) ) {
+				return true;
+			}
+		}
+	}
 }
 function sleep(milliseconds) {
   var start = new Date().getTime();
